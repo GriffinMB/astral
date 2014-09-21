@@ -23,7 +23,7 @@ if(!program.args.length) {
 var setupMeteor = function(p, callback) {
   exec('meteor create ' + p, function(error, stdout, stderr) {
     if (error == null) {
-      console.log('meteor setup');
+      console.log(stdout);
       callback(p);
     } else {
       console.log('exec error: ' + error);
@@ -32,14 +32,12 @@ var setupMeteor = function(p, callback) {
 }
 
 var setupClient = function(p) {
-  console.log('setting up client');
   // Main client
   fs.mkdirs(p + "/client", function(err) {
     if (err) {
       return console.error(err);
     }
 
-    console.log("Client directory created.")
   });
 
   fs.copy(p + "/" + p + ".html", p + "/client/main.html", function(err) {
@@ -66,7 +64,6 @@ var setupClient = function(p) {
 
   // Client views
   fs.outputFile(p + "/client/views/application/layout.html.example");
-  fs.mkdirs(p + "/client/views/templates");
 
 }
 
