@@ -5,7 +5,6 @@ var fs = require('fs-extra');
 var path = require('path');
 var touch = require('touch');
 var exec = require('child_process').exec;
-var scaffoldPath = path.resolve("#{__dirname}/../scaffold" + "/");
 
 program
   .version('0.0.3')
@@ -37,6 +36,9 @@ var setupMeteor = function(p, callback) {
 }
 
 var createScaffold = function(p) {
+  // var scaffoldPath = path.resolve("#{__dirname}/../scaffold" + "/")
+  var scaffoldPath = path.resolve(__dirname + "/scaffold/")
+  
   fs.remove(p + "/" + p + ".html");
   fs.remove(p + "/" + p + ".css");
   fs.remove(p + "/" + p + ".js")
