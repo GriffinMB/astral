@@ -1,3 +1,8 @@
+To install:
+```
+npm install astral-meteor
+```
+
 Usage: astral project [projectName]
 
 This creates the basic file structure I use to work with Meteor.
