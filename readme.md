@@ -33,7 +33,10 @@ server/
 
 ```
 
-To enable iron-router, astral project [projectName] -r
+To enable iron-router: 
+```
+astral project [projectName] -r
+```
 
 TODO:
 
