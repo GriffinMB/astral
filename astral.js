@@ -17,7 +17,6 @@ if(!program.args.length) {
   program.help();
 } else {
   var keywords = program.args;
-
 }
 
 // Scaffolding
