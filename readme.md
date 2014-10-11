@@ -1,6 +1,6 @@
 To install:
 ```
-npm install astral-meteor
+npm install -g astral-meteor
 ```
 
 Usage: 
