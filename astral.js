@@ -5,6 +5,7 @@ var fs = require('fs-extra');
 var path = require('path');
 var touch = require('touch');
 var exec = require('child_process').exec;
+var scaffoldPath = path.resolve("#{__dirname}/../scaffold" + "/");
 
 program
   .version('0.0.1')
@@ -31,76 +32,21 @@ var setupMeteor = function(p, callback) {
   });
 }
 
-var setupClient = function(p) {
-  // Main client
-  fs.mkdirs(p + "/client", function(err) {
+var createScaffold = function(p) {
+  fs.remove(p + "/" + p + ".html");
+  fs.remove(p + "/" + p + ".css");
+  fs.remove(p + "/" + p + ".js")
+
+  fs.copy(scaffoldPath, p + '/', function(err) {
     if (err) {
       return console.error(err);
     }
-
   });
-
-  fs.copy(p + "/" + p + ".html", p + "/client/main.html", function(err) {
-    if (err) {
-      return console.error(err);
-    }
-
-    fs.remove(p + "/" + p + ".html");
-    fs.remove(p + "/" + p + ".css");
-  });
-  fs.copy(p + "/" + p + ".js", p + "/client/main.js", function(err) {
-    if (err) {
-      return console.error(err);
-    }
-
-    fs.remove(p + "/" + p + ".js")
-  });
-
-  // Client helpers
-  fs.outputFile(p + "/client/helpers/config.js");
-
-  // Stylesheets
-  fs.mkdirs(p + "/client/stylesheets");
-
-  // Client views
-  fs.outputFile(p + "/client/views/application/layout.html.example");
-
-}
-
-var setupServer = function(p) {
-  // Main server
-  fs.mkdirs(p + '/server');
-  fs.outputFile(p + "/server/fixtures.js");
-  fs.outputFile(p + "/server/publications.js");
-}
-
-var setupPublic = function(p) {
-  // Main public
-  fs.mkdirs(p + '/public');
-}
-
-var setupLib = function(p) {
-  // Main Lib
-  fs.mkdirs(p + '/lib');
-  fs.outputFile(p + "/lib/router.js");
-}
-
-var setupCollections = function(p) {
-  // Main collections
-  fs.mkdirs(p + '/collections');
 }
 
 // Functions
 var createProject = function(projectName) {
   setupMeteor(projectName, createScaffold);
-}
-
-var createScaffold = function(projectName) {
-  setupClient(projectName);
-  setupServer(projectName);
-  setupPublic(projectName);
-  setupLib(projectName);
-  setupCollections(projectName);
 }
 
 program.command('project <projectName>')
