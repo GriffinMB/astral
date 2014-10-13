@@ -7,7 +7,7 @@ var touch = require('touch');
 var exec = require('child_process').exec;
 
 program
-  .version('0.0.6')
+  .version('0.0.7')
   .usage('project <projectName>')
   .option('-r, --routes', 'enable iron-router')
   .option('-f, --full', 'include all packages')
