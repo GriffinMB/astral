@@ -1,4 +1,12 @@
-Usage: astral project [projectName]
+To install:
+```
+npm install -g astral-meteor
+```
+
+Usage: 
+```
+astral project [projectName]
+```
 
 This creates the basic file structure I use to work with Meteor.
 
@@ -25,7 +33,10 @@ server/
 
 ```
 
-To enable iron-router, astral project [projectName] -r
+To enable iron-router: 
+```
+astral project [projectName] -r
+```
 
 TODO:
 
