@@ -7,9 +7,10 @@ var touch = require('touch');
 var exec = require('child_process').exec;
 
 program
-  .version('0.0.3')
+  .version('0.0.5')
   .usage('project <projectName>')
   .option('-r, --routes', 'enable iron-router')
+  .option('-f, --full', 'include all packages')
   .parse(process.argv);
 
 if(!program.args.length) {
@@ -26,6 +27,8 @@ var setupMeteor = function(p, callback) {
       console.log(stdout);
       if (program.routes) {
         addIronRouter(p, callback);
+      } else if (program.full) {
+        addAllPackages(p, callback);
       } else {
         callback(p);
       }
@@ -38,7 +41,7 @@ var setupMeteor = function(p, callback) {
 var createScaffold = function(p) {
   // var scaffoldPath = path.resolve("#{__dirname}/../scaffold" + "/")
   var scaffoldPath = path.resolve(__dirname + "/scaffold/")
-  
+
   fs.remove(p + "/" + p + ".html");
   fs.remove(p + "/" + p + ".css");
   fs.remove(p + "/" + p + ".js")
@@ -48,6 +51,83 @@ var createScaffold = function(p) {
       return console.error(err);
     }
   });
+}
+
+var addAllPackages = function(p, callback) {
+  fs.appendFile(p + "/.meteor/packages", "iron:router", function(err) {
+    if (err) {
+      return console.error(err);
+    } else {
+      console.log("Iron Router added to packages");
+    }
+  });
+
+  fs.appendFile(p + "/.meteor/packages", "mrt:iron-router-progress", function(err) {
+    if (err) {
+      return console.error(err);
+    } else {
+      console.log("Iron Router Progress Bar added to packages");
+    }
+  });
+
+  fs.appendFile(p + "/.meteor/packages", "accounts-base", function(err) {
+    if (err) {
+      return console.error(err);
+    } else {
+      console.log("Accounts-Base added to packages");
+    }
+  });
+
+  fs.appendFile(p + "/.meteor/packages", "accounts-password", function(err) {
+    if (err) {
+      return console.error(err);
+    } else {
+      console.log("Accounts-Password added to packages");
+    }
+  });
+
+  fs.appendFile(p + "/.meteor/packages", "less", function(err) {
+    if (err) {
+      return console.error(err);
+    } else {
+      console.log("Less added to packages");
+    }
+  });
+
+  fs.appendFile(p + "/.meteor/packages", "jquery", function(err) {
+    if (err) {
+      return console.error(err);
+    } else {
+      console.log("JQuery added to packages");
+    }
+  });
+
+  fs.appendFile(p + "/.meteor/packages", "underscore", function(err) {
+    if (err) {
+      return console.error(err);
+    } else {
+      console.log("Underscore added to packages");
+    }
+  });
+
+  fs.appendFile(p + "/.meteor/packages", "cfs:standard-packages", function(err) {
+    if (err) {
+      return console.error(err);
+    } else {
+      console.log("Collection File System added to packages");
+    }
+  });
+
+  fs.appendFile(p + "/.meteor/packages", "cfs:filesystem", function(err) {
+    if (err) {
+      return console.error(err);
+    } else {
+      console.log("CFS temp storage system added to packages");
+    }
+
+    callback(p);
+  });
+
 }
 
 var addIronRouter = function(p, callback) {
