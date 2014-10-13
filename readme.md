@@ -3,7 +3,7 @@ To install:
 npm install -g astral-meteor
 ```
 
-Usage: 
+Usage:
 ```
 astral project [projectName]
 ```
@@ -33,7 +33,24 @@ server/
 
 ```
 
-To enable iron-router: 
+To enable all default packages:
+
+```
+astral project [projectName] -f
+```
+
+Included default packages:
+- iron:router
+- mrt:iron-router-progress
+- accounts-base
+- accounts-password
+- less
+- jquery
+- underscore
+- cfs:standard-packages
+- cfs:filesystem
+
+To enable iron-router only:
 ```
 astral project [projectName] -r
 ```
