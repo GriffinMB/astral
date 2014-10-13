@@ -54,7 +54,7 @@ var createScaffold = function(p) {
 }
 
 var addAllPackages = function(p, callback) {
-  fs.appendFile(p + "/.meteor/packages", "iron:router", function(err) {
+  fs.appendFile(p + "/.meteor/packages", "iron:router\n", function(err) {
     if (err) {
       return console.error(err);
     } else {
@@ -62,7 +62,7 @@ var addAllPackages = function(p, callback) {
     }
   });
 
-  fs.appendFile(p + "/.meteor/packages", "mrt:iron-router-progress", function(err) {
+  fs.appendFile(p + "/.meteor/packages", "mrt:iron-router-progress\n", function(err) {
     if (err) {
       return console.error(err);
     } else {
@@ -70,7 +70,7 @@ var addAllPackages = function(p, callback) {
     }
   });
 
-  fs.appendFile(p + "/.meteor/packages", "accounts-base", function(err) {
+  fs.appendFile(p + "/.meteor/packages", "accounts-base\n", function(err) {
     if (err) {
       return console.error(err);
     } else {
@@ -78,7 +78,7 @@ var addAllPackages = function(p, callback) {
     }
   });
 
-  fs.appendFile(p + "/.meteor/packages", "accounts-password", function(err) {
+  fs.appendFile(p + "/.meteor/packages", "accounts-password\n", function(err) {
     if (err) {
       return console.error(err);
     } else {
@@ -86,7 +86,7 @@ var addAllPackages = function(p, callback) {
     }
   });
 
-  fs.appendFile(p + "/.meteor/packages", "less", function(err) {
+  fs.appendFile(p + "/.meteor/packages", "less\n", function(err) {
     if (err) {
       return console.error(err);
     } else {
@@ -94,7 +94,7 @@ var addAllPackages = function(p, callback) {
     }
   });
 
-  fs.appendFile(p + "/.meteor/packages", "jquery", function(err) {
+  fs.appendFile(p + "/.meteor/packages", "jquery\n", function(err) {
     if (err) {
       return console.error(err);
     } else {
@@ -102,7 +102,7 @@ var addAllPackages = function(p, callback) {
     }
   });
 
-  fs.appendFile(p + "/.meteor/packages", "underscore", function(err) {
+  fs.appendFile(p + "/.meteor/packages", "underscore\n", function(err) {
     if (err) {
       return console.error(err);
     } else {
@@ -110,7 +110,7 @@ var addAllPackages = function(p, callback) {
     }
   });
 
-  fs.appendFile(p + "/.meteor/packages", "cfs:standard-packages", function(err) {
+  fs.appendFile(p + "/.meteor/packages", "cfs:standard-packages\n", function(err) {
     if (err) {
       return console.error(err);
     } else {
@@ -118,7 +118,7 @@ var addAllPackages = function(p, callback) {
     }
   });
 
-  fs.appendFile(p + "/.meteor/packages", "cfs:filesystem", function(err) {
+  fs.appendFile(p + "/.meteor/packages", "cfs:filesystem\n", function(err) {
     if (err) {
       return console.error(err);
     } else {
@@ -131,7 +131,7 @@ var addAllPackages = function(p, callback) {
 }
 
 var addIronRouter = function(p, callback) {
-  fs.appendFile(p + "/.meteor/packages", "iron:router", function(err) {
+  fs.appendFile(p + "/.meteor/packages", "iron:router\n", function(err) {
     if (err) {
       return console.error(err);
     } else {
