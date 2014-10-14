@@ -28,12 +28,26 @@ var setupMeteor = function(p, callback) {
       if (program.routes) {
         addIronRouter(p, callback);
       } else if (program.full) {
-        addAllPackages(p, callback);
+        addAllPackages(p, createFullScaffold);
       } else {
         callback(p);
       }
     } else {
       console.log('exec error: ' + error);
+    }
+  });
+}
+
+var createFullScaffold = function(p) {
+  var scaffoldPath = path.resolve(__dirname + "/full_scaffold/")
+
+  fs.remove(p + "/" + p + ".html");
+  fs.remove(p + "/" + p + ".css");
+  fs.remove(p + "/" + p + ".js")
+
+  fs.copy(scaffoldPath, p + '/', function(err) {
+    if (err) {
+      return console.error(err);
     }
   });
 }
