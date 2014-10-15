@@ -50,6 +50,20 @@ Included default packages:
 - cfs:standard-packages
 - cfs:filesystem
 
+The -f option also adds a default hello world router skeleton:
+
+```
+Router.configure({
+  layoutTemplate: 'layout'
+});
+
+Router.map(function() {
+  this.route('hello', {
+    path: '/'
+  });
+});
+```
+
 To enable iron-router only:
 ```
 astral project [projectName] -r
