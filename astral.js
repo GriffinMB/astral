@@ -76,7 +76,7 @@ var addAllPackages = function(p, callback) {
     }
   });
 
-  fs.appendFile(p + "/.meteor/packages", "mrt:iron-router-progress\n", function(err) {
+  fs.appendFile(p + "/.meteor/packages", "multiply:iron-router-progress\n", function(err) {
     if (err) {
       return console.error(err);
     } else {
